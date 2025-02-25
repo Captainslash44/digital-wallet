@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container.login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 50vh;
+    margin: 10rem;
+    justify-content: space-between;
+    width: 30vw;
+}
+
+.login-header{
+    height:5vh;
+    background-color: blue;
+}
+
+.login-form input{
+    border-width: 0.5rem;
+    height: 3rem;
+
+}
