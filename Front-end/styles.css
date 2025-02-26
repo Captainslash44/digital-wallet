@@ -13,9 +13,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #2DAA9E;
 }
 
-.container.login-form {
+.login-form {
     display: flex;
     flex-direction: column;
     background-color: #EAEAEA;
@@ -24,6 +25,8 @@ body{
     justify-content: space-between;
     width: 25vw;
     padding: 1rem;
+    font-family: "Montserrat";
+    
 }
 
 .login-header{
@@ -44,17 +47,46 @@ body{
 .login-form .signin-button{
     height: 3rem;
     border-radius: 0.5rem;
-    background-color: #2DAA9E;
+    background-color: #66D2CE;
     margin: 0 5rem;
+    font-family: "Montserrat";
+    font-weight: 750;
     
 }
 
-.container .social-login{
+.login-form p{
+    font-size: 0.7rem;
+    text-align: center;
+    color: #2DAA9E;
+}
+
+.login-form a{
+    color: #2DAA9E;
+}
+
+.social-login{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
 }
 
-.login-form input:focus{
+.social-login .social-button{
+    font-family: "Montserrat";
+    height: 2.2rem;
+    background-color: #66D2CE;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    font-weight: 750;
+    
+}
+
+.google{
+    flex-grow: 0.15;
+}
+
+input:focus{
      outline: 0.15rem solid grey;
 }
+
