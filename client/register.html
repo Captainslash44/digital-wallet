@@ -7,43 +7,43 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="flex justify-center center-align bg-primary">
-    <form action="">
-        <header>
+    <form action="" class="register-form flex flex-column justify-center center-align">
+        <header class="signup-header">
             <h3>Create an account</h3>
         </header>
 
-        <div>
-            <ul>
-                <li>
+        <div class="flex flex-column space-between">
+            <ul class="flex register-fields">
+                <li class="flex flex-column">
                     <label for="">Name</label>
                     <input type="text" name="" id="" placeholder="Name">
                 </li>
-                <li>
+                <li class="flex flex-column">
                     <label for="">Last Name</label>
                     <input type="text" name="" id="" placeholder="Last Name">
                 </li>
-                <li>
+                <li class="flex flex-column">
                     <label for="">Email</label>
                     <input type="email" name="" id="" placeholder="Email">
                 </li>
-                <li>
+                <li class="flex flex-column">
                     <label for="">Phone Number</label>
                     <input type="number" name="" id="" placeholder="Phone number">
                 </li>
-                <li>
+                <li class="flex flex-column">
                     <label for="">Password</label>
                     <input type="password" name="" id="" placeholder="Enter Password">
                 </li>
-                <li>
+                <li class="flex flex-column">
                     <label for="">Confirm Password</label>
                     <input type="password" name="" id="" placeholder="Confirm Password">
                 </li>
             </ul>
-            <div>
-                <button>Sign Up</button>
+            <div class="flex justify-center center-align">
+                <button class="signup-button">Sign Up</button>
             </div>
         </div>
-        <footer>Already have an account? <a href="">Login</a></footer>
+        <footer class="signup-footer">Already have an account? <a href="">Login</a></footer>
     </form>
 </body>
 </html>

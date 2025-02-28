@@ -8,13 +8,30 @@
 input{
     outline:none;
 }
-
-body{
+.flex{
     display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.bg-primary{
     background-color: #2DAA9E;
 }
+
+.center-align{
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
 
 .login-form {
     display: flex;
@@ -27,6 +44,52 @@ body{
     padding: 1rem;
     font-family: "Montserrat";
     
+}
+
+.register-form{
+    margin-top: 5em;
+    background-color: #EAEAEA;
+    width: 40vw;
+    /* padding: 3em; */
+    justify-content: space-between;
+    font-family: "Montserrat"
+}
+
+.signup-header{
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+.signup-footer{
+    margin-top: 3em;
+    margin-bottom: 1em;
+    font-size: x-small;
+}
+
+
+
+.signup-button{
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #66D2CE;
+    margin-top: 2em;
+    font-family: "Montserrat";
+    font-weight: 750;
+    width: 50%;
+}
+
+.register-fields  li{
+margin: 0.5em;
+}
+
+.register-fields input{
+    height: 2rem;
+    padding: 0.3rem;
+}
+
+.register-fields{
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .login-header{
@@ -97,6 +160,11 @@ body{
     color: #EAEAEA;
 }
 
+.signup-button:hover{
+    background-color: #AEEA94;
+    color: #EAEAEA;
+}
+
 input:focus{
      outline: 0.15rem solid grey;
 }
@@ -111,5 +179,15 @@ input:focus{
     }
     .social-button{
         font-size: 0.5em;
+    }
+}
+
+@media (max-width: 450px){
+
+    .register-form{
+        font-size: smaller;
+    }
+    .register-fields input{
+        width: 9em;
     }
 }
