@@ -1,5 +1,5 @@
 <?php
-require_once "../connection/connection.php";
+include("../../connection/connection.php");
 
 
 class User{
@@ -52,7 +52,20 @@ class User{
             return $response["Message"] = "User Updated";
         }
     }
-};
+
+    public static function login($email, $password){
+        global $conn;
+
+        $query = $conn->prepare("SELECT * FROM users where email = ? and password = ?");
+        $query->bind_param("ss",$email,$password);
+        $query->execute();
+        $response = [];
+        return $response["message"] = "login successful";
+        
+
+        }
+        };
+
 
      
 
