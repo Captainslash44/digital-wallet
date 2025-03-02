@@ -9,6 +9,6 @@ form.addEventListener('submit', (e)=>{
     console.log(data);
 
 
-    axios.post("http://localhost/digital-wallet/server/user/v1/login.php",data)
+    axios.post("http://localhost/digital-wallet/server/user/v1/login.php",{data},{headers: {"Content-Type":"application/json"}})
     .then(res => console.log(res));
 })

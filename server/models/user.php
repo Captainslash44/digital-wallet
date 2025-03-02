@@ -12,7 +12,7 @@ class User{
 
       static function isNew($email, $phone){
         global $conn;
-        $query = $conn->prepare("SELECT * FROM users WHERE email = ? AND phone_number = ?");
+        $query = $conn->prepare("SELECT * FROM users WHERE email = ? OR phone_number = ?");
 
         $query->bind_param("si", $email, $phone);
         $query->execute();
@@ -110,28 +110,4 @@ class User{
      
 
 
-// echo (User::isNew("666@gmail.com",666));
-
-
-
-
-
-
-
-
-
-
-
-// $id = 1;
-// $query = $conn->prepare("SELECT * FROM users where id=?");
-// $query->bind_param("i",$id );
-// $query->execute();
-// $response = $query->get_result();
-// $answer = [];
-// while($i = $response->fetch_assoc() ){
-//     $answer = $i;
-// }
-// echo json_encode($answer);
-
-
-// ?>
+ ?>
