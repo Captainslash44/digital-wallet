@@ -12,19 +12,19 @@
 
 </head>
 <body class="flex justify-center center-align bg-primary">
-    <form class="container login-form">
+    <form class="container login-form" id="login-form">
 
         <div class="login-header">
             <h2>LOGIN</h2>
         </div>
 
         <label for="">Email or phone</label>
-            <input type="text" placeholder="Email or phone number">
+            <input type="text" id="email-phone" placeholder="Email or phone number">
 
         <label for="">Password</label>
-            <input type="password" placeholder="Password">
+            <input type="password" id="password" placeholder="Password">
 
-        <button class="signin-button">Sign In</button>
+        <button class="signin-button" type="submit">Sign In</button>
 
         <div class="social-login">
             <button class="social-button facebook"><i class="fa fa-facebook-square"></i>Facebook</button>
@@ -37,5 +37,6 @@
 
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 <script src="./client/login.js"></script>
 </html>

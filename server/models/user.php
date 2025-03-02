@@ -1,4 +1,8 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: *');
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Content-Type: application/json; charset=UTF-8");
 include("../../connection/connection.php");
 
 
@@ -53,24 +57,40 @@ class User{
         }
     }
 
-    public static function login($email, $password){
+    public static function emailLogin($email, $password){
         global $conn;
 
         $query = $conn->prepare("SELECT * FROM users where email = ? and password = ?");
         $query->bind_param("ss",$email,$password);
         $query->execute();
         $response = [];
-        return $response["message"] = "login successful";
+        $response["message"] = "login successful";
+        $response["login"] = True;
+        return json_encode($response);
+        
         
 
         }
+        public static function phoneLogin($phone, $password){
+            global $conn;
+    
+            $query = $conn->prepare("SELECT * FROM users where phone_number = ? and password = ?");
+            $query->bind_param("ss",$phone,$password);
+            $query->execute();
+            $response = [];
+            $response["message"] = "login successful";
+            $response["login"] = True;
+            return json_encode($response);
+            
+    
+            }
         };
 
-
+        
      
 
 
-echo (User::isNew("666@gmail.com",666));
+// echo (User::isNew("666@gmail.com",666));
 
 
 
