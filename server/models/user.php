@@ -19,7 +19,7 @@ class User{
         $response = $query->get_result();
         $array = [];
         while ($i = $response->fetch_assoc()){
-            $array= $i;
+            $array[]= $i;
         }
         if(empty($array)){
             return true;
@@ -83,6 +83,26 @@ class User{
             return json_encode($response);
             
     
+            }
+
+
+            public static function isVerified($id){
+                global $conn;
+
+                $query = $conn->prepare("SELECT is_verified from users where id = ?");
+                $query->bind_param("i", $id);
+                $query->execute();
+
+                $response = $query->get_result();
+                $array = [];
+                while($i = $response->fetch_assoc()){
+                    $array[] = $i;
+                }
+                if($array[0]["is_verified"] == 1){
+                    return true;
+                }else{
+                    return false;
+                }
             }
         };
 
