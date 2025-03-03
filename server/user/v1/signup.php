@@ -7,8 +7,8 @@ include("../../connection/connection.php");
 if (isset($_POST["name"])){
     $name = $_POST["name"];
 }
-if (isset($_POST["last_name"])){
-    $lastname = $_POST["last_name"];
+if (isset($_POST["lastname"])){
+    $lastname = $_POST["lastname"];
 }
 
 if (isset($_POST["email"])){
@@ -19,17 +19,11 @@ if (isset($_POST["phone"])){
     $phone = $_POST["phone"];
 }
 if (isset($_POST["password"])){
-    $password = $_POST["password"];
+    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 }
 
-if(User::isNew($email,$password)){
-    $date_time = date("Y-m-d H:i:s");
-
-    $query = $conn->prepare("INSERT INTO users 
-    (name,last_name,email,phone_number,password,time_created) VALUES (?,?,?,?,?,?)");
-
-    $query->bind_param("sssiss", $name, $lastname, $email, $phone, $password, $date_time);
-    $query->execute();
+if(User::isNew($email,$phone)){
+    User::addUser($name, $lastname, $email, $phone, $password);
     $response = [];
     $response["message"] = "User created!";
 } else{

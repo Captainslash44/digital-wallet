@@ -10,7 +10,7 @@ class User{
     
     //check if the user exists in the database using email and phone:
 
-      static function isNew($email, $phone){
+      public static function isNew($email, $phone){
         global $conn;
         $query = $conn->prepare("SELECT * FROM users WHERE email = ? OR phone_number = ?");
 
@@ -31,30 +31,21 @@ class User{
 
     // add new or update current user(based on id sent):
 
-    static function addOrUpdateUser($name, $lastname, $email, $phone, $password){
+    public static function addOrUpdateUser($name, $lastname, $email, $phone, $password){
         global $conn;
         if (self::isNew($email,$phone)){
-            $date_time = date("Y-m-d H:i:s");
-
-            $query = $conn->prepare("INSERT INTO users 
-            (name,last_name,email,phone_number,password,time_created) VALUES (?,?,?,?,?,?)");
-
-            $query->bind_param("sssiss", $name, $lastname, $email, $phone, $password, $date_time);
-            $query->execute();
+            self::addUser($name, $lastname, $email, $phone, $password);
 
             $response = [];
-            return $response["Message"] = "User created";
+            $response["Message"] = "User created";
         }else{
-            $user_id = $_GET["id"];
+            self::updateUser($id, $name, $lastname, $email, $phone, $password);
 
-            $query = $conn->prepare("UPDATE users SET name=?, last_name=?, email=?,
-            phone_number=?, password=? WHERE id=?");
-
-            $query->bind_param("sssisi", $name, $lastname, $email, $phone, $password, $user_id);
-            $query->execute();
             $response = [];
-            return $response["Message"] = "User Updated";
+            $response["Message"] = "User Updated";
         }
+
+        return json_encode($response);
     }
 
     public static function emailLogin($email, $password){
@@ -86,24 +77,48 @@ class User{
             }
 
 
-            public static function isVerified($id){
-                global $conn;
+        public static function isVerified($id){
+            global $conn;
 
-                $query = $conn->prepare("SELECT is_verified from users where id = ?");
-                $query->bind_param("i", $id);
-                $query->execute();
+            $query = $conn->prepare("SELECT is_verified from users where id = ?");
+            $query->bind_param("i", $id);
+            $query->execute();
 
-                $response = $query->get_result();
-                $array = [];
-                while($i = $response->fetch_assoc()){
-                    $array[] = $i;
-                }
-                if($array[0]["is_verified"] == 1){
-                    return true;
-                }else{
-                    return false;
-                }
+            $response = $query->get_result();
+            $array = [];
+            while($i = $response->fetch_assoc()){
+                $array[] = $i;
             }
+            if($array[0]["is_verified"] == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public static function addUser($name, $lastname, $email, $phone, $password){
+            global $conn;
+            $date_time = date("Y-m-d H:i:s");
+            $query = $conn->prepare("INSERT INTO users (name, last_name, email, phone_number, password, time_created) 
+            VALUES (?,?,?,?,?,?)");
+
+            $query->bind_param("sssiss", $name, $lastname, $email, $phone, $password, $date_time);
+            $query->execute();
+            
+            return;
+        }
+
+
+        public static function updateUser($id, $name, $lastname, $email, $phone, $password){
+            global $conn;
+            $query = $conn->prepare("UPDATE users SET name=?, last_name=?, email=?,
+            phone_number=?, password=? WHERE id=?");
+
+            $query->bind_param("sssisi", $name, $lastname, $email, $phone, $password, $id);
+            $query->execute();
+            return;
+        }
+
         };
 
         
