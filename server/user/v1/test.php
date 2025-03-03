@@ -1,9 +1,15 @@
 <?php
 
 
-include("../../models/user.php");
+include("../../models/wallet.php");
 
-echo(User::isNew("666@gmai", 66));
+echo (Wallet::checkBalance(1));
+
+echo (Wallet::removeFunds(1,90));
+
+
+
+
 
 
 ?>
