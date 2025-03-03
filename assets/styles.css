@@ -1,8 +1,11 @@
+/* --------------------------General Settings------------------------------- */
+
 *{
     margin: 0;
     padding: 0;
     border: 0;
     /* box-sizing: border-box; */
+    font-family: "Montserrat";
 }
 
 input{
@@ -14,6 +17,14 @@ input{
 
 .bg-primary{
     background-color: #2DAA9E;
+}
+
+.bg-secondary{
+    background-color: #EAEAEA;
+}
+
+.bg-neutral{
+    background-color: #EAEAEA;
 }
 
 .center-align{
@@ -32,19 +43,37 @@ input{
     justify-content: space-between;
 }
 
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-    background-color: #EAEAEA;
-    height: 60vh;
-    margin: 10rem;
-    justify-content: space-between;
-    width: 35vw;
-    padding: 1rem;
-    font-family: "Montserrat";
-    
+.space-around{
+    justify-content: space-around;
 }
+
+input:focus{
+    outline: 0.15rem solid grey;
+}
+
+.flex-grow{
+    flex-grow: 1;
+}
+
+ul{
+    list-style: none;
+}
+
+@media (max-width: 820px){
+   .login-form{
+       font-size: 0.9em;
+   }
+   .signin-button{
+       font-size: 0.5em;
+   }
+   .social-button{
+       font-size: 0.5em;
+   }
+}
+
+
+
+/* --------------------------Register Page------------------------------- */
 
 .register-form{
     margin-top: 5em;
@@ -52,7 +81,6 @@ input{
     width: 40vw;
     /* padding: 3em; */
     justify-content: space-between;
-    font-family: "Montserrat"
 }
 
 .signup-header{
@@ -66,14 +94,11 @@ input{
     font-size: x-small;
 }
 
-
-
 .signup-button{
     height: 3rem;
     border-radius: 0.5rem;
     background-color: #66D2CE;
     margin-top: 2em;
-    font-family: "Montserrat";
     font-weight: 750;
     width: 50%;
 }
@@ -90,6 +115,37 @@ margin: 0.5em;
 .register-fields{
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.signup-button:hover{
+    background-color: #AEEA94;
+    color: #EAEAEA;
+}
+
+@media (max-width: 450px){
+
+    .register-form{
+        font-size: smaller;
+    }
+    .register-fields input{
+        width: 9em;
+    }
+}
+
+
+
+/* --------------------------Login Page------------------------------- */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #EAEAEA;
+    height: 60vh;
+    margin: 10rem;
+    justify-content: space-between;
+    width: 35vw;
+    padding: 1rem;
+    
 }
 
 .login-header{
@@ -112,10 +168,7 @@ margin: 0.5em;
     border-radius: 0.5rem;
     background-color: #66D2CE;
     margin: 0 3rem;
-    font-family: "Montserrat";
     font-weight: 750;
-    
-    
 }
 
 .login-form p{
@@ -137,13 +190,11 @@ margin: 0.5em;
 }
 
 .social-login .social-button{
-    font-family: "Montserrat";
     height: 2.2rem;
     background-color: #66D2CE;
     border-radius: 0.5rem;
     padding: 0.3rem;
     font-weight: 750;
-    
 }
 
 .google{
@@ -160,34 +211,46 @@ margin: 0.5em;
     color: #EAEAEA;
 }
 
-.signup-button:hover{
-    background-color: #AEEA94;
-    color: #EAEAEA;
+
+/* --------------------------Main Page------------------------------- */
+
+.main-header{
+    height: 15vh;
+    align-items: center;
 }
 
-input:focus{
-     outline: 0.15rem solid grey;
+.sub-header{
+    height: 7.5vh;
+    align-items: center;
 }
 
-@media (max-width: 820px){
-    .login-form{
-        font-size: 0.9em;
-    }
-    .signin-button{
-        font-size: 0.5em;
-
-    }
-    .social-button{
-        font-size: 0.5em;
-    }
+.actions{
+    /* padding: 2em; */
+    /* margin: 1em; */
+    text-align: center;
+    height: 85vh;
 }
 
-@media (max-width: 450px){
+.wallets{
+    /* padding: 2em; */
+    /* margin: 1em; */
+    text-align: center;
+}
 
-    .register-form{
-        font-size: smaller;
-    }
-    .register-fields input{
-        width: 9em;
-    }
+.action-button{
+    background-color:#2DAA9E ;
+    text-align: left;
+    border-radius: 10px;
+    margin: 1em 2em 1em 2em;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.action-button:hover{
+    background-color: #28FFBF;
+}
+
+.main-menu-container h2{
+    color: black;
 }
