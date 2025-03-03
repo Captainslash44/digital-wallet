@@ -11,7 +11,8 @@ include("../../utils/phoneLogin.php");
 
 // echo json_encode(Wallet::getAllUserWallets(1));
 
-echo phoneLogin(666, "IamAwesome");
+// echo json_encode(User::getUserByPhone(666));
 
+echo json_encode(User::verifyPassword(5, "IamAwesome"));
 
 ?>
