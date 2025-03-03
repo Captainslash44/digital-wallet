@@ -63,6 +63,15 @@ class Wallet{
             }
             return $response;
         }
+
+
+        public static function addFunds(){
+
+        }
+
+        public static function removeFunds(){
+            
+        }
         
     }
 
