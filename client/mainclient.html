@@ -9,7 +9,7 @@
 <body>
     <header class="bg-primary main-header flex space-around">
         <h1>Welcome client</h1>
-        <button>Logout</button>
+        <button class="logout-button">Logout</button>
     </header>
     <div class="main-menu-container flex space-between">
         <ul class="actions flex flex-column space-between flex-grow bg-secondary">
@@ -18,13 +18,14 @@
             </header>
             <li class="flex flex-grow"><button class="action-button flex-grow">Verify</button></li>
             <li class="flex flex-grow"><button class="action-button flex-grow">Deposit</button></li>
+            <li class="flex flex-grow"><button class="action-button flex-grow">Submit Ticket</button></li>
             <li class="flex flex-grow"><button class="action-button flex-grow">Generate QR Code</button></li>
             <li class="flex flex-grow"><button class="action-button flex-grow">Settings</button></li>
         </ul>
         <ul class="wallets flex-grow bg-secondary">
-            <header class="flex space-around sub-header">
+            <header class="flex space-between sub-header">
                 <h2>Wallets</h2>
-                <button>+</button>
+                <button class="add-wallet-button">+</button>
             </header>
             <ul>
             <li class="flex space-between bg-neutral"><p>id</p>
