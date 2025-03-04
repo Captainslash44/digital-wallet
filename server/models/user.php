@@ -32,7 +32,7 @@ class User{
 
       public static function isNew($email, $phone){
         global $conn;
-        $query = $conn->prepare("SELECT * FROM users WHERE email = ? OR phone_number = ?");
+        $query = $conn->prepare("SELECT * FROM users WHERE email = ? and phone_number = ?");
 
         $query->bind_param("si", $email, $phone);
         $query->execute();
