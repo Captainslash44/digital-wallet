@@ -1,4 +1,4 @@
-
+const base_api = "http://13.38.109.103";
 const register = document.getElementById("signup-button");
 
 register.addEventListener('click', (e) => {
@@ -58,7 +58,7 @@ register.addEventListener('click', (e) => {
 
     if(checker){
         const checkCredentials = async () =>{
-            const response = await axios.post("http://localhost/digital-wallet/server/user/v1/checkCredentials.php", data);
+            const response = await axios.post(base_api+"/server/user/v1/checkCredentials.php", data);
             if (response.data["message"]){
                 return true;
             }else{
@@ -67,7 +67,7 @@ register.addEventListener('click', (e) => {
         }
 
         if(checkCredentials){
-            axios.post("http://localhost/digital-wallet/server/user/v1/signup.php", data)
+            axios.post(base_api+"/server/user/v1/signup.php", data)
             .then(response => {const message =  response.data.message;
                 if(message == "already exists"){
                     alert("User already exists");

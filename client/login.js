@@ -1,4 +1,4 @@
-const base_api = "";
+const base_api = "http://13.38.109.103";
 
 const form = document.getElementById("login-form");
 
@@ -19,7 +19,7 @@ form.addEventListener('submit', (e)=>{
 
 
     const checkLogin = async ()=>{
-        const response = await axios.post("http://localhost/digital-wallet/server/user/v1/login.php", data);
+        const response = await axios.post(base_api+"/server/user/v1/login.php", data);
         if(response.data.id == false){
             alert("Wrong credentials");
         }else{
