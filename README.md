@@ -87,3 +87,5 @@ checkBalance($wallet_id) => check balance of a wallet, returns float.
 addFunds and removeFunds ($wallet_id, $amount) => used in transactions, return success message.
 
 ```
+-ER DIAGRAM
+<img src="\assets\images and diagrams\erdiagram.jpg"><img>
