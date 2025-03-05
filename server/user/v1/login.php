@@ -1,8 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header('Access-Control-Allow-Headers: *');
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Content-Type: application/json; charset=UTF-8");
+
 include("../../models/user.php");
 
 
@@ -13,21 +10,21 @@ if(isset($_POST["password"])){
     if(isset($_POST["email"])){
         $email = $_POST["email"];
         if(User::verifyPassword(User::getUserByEmail($email), $password)){
-            $response["entry"] = true;
+            $response["id"] = User::getUserByEmail($email);
         }else{
-            $response["entry"] = false;
+            $response["id"] = false;
         }
     }
     else if(isset($_POST["phone"])){
         $phone = $_POST["phone"];
         if(User::verifyPassword(User::getUserByPhone($phone), $password)){
-            $response["entry"] = true;
+            $response["id"] = User::getUserByPhone($phone);
         }else{
-            $response["entry"] = false;
+            $response["id"] = false;
         }
     }
 }else{
-    return $response["entry"] = false;
+    return $response["id"] = false;
 }
 
 echo json_encode($response);

@@ -15,7 +15,12 @@ class User{
         $query->bind_param("s", $email);
         $query->execute();
         $response = $query->get_result();
-        return $response->fetch_assoc()["id"];
+        $answer = $response->fetch_assoc();
+        if($answer != NULL){
+            return $answer["id"];
+        }else{
+            return false;
+        }
     }
 
     public static function getUserByPhone($phone){
@@ -25,7 +30,13 @@ class User{
         $query->bind_param("i", $phone);
         $query->execute();
         $response = $query->get_result();
-        return $response->fetch_assoc()["id"];
+        $answer = $response->fetch_assoc();
+        if($answer != NULL){
+            return $answer["id"];
+        }else{
+            return false;
+        }
+        
     }
     
     //check if the user exists in the database using email and phone:
@@ -124,12 +135,17 @@ class User{
             $query->execute();
 
             $response = $query->get_result();
-            $answer = $response->fetch_assoc()["password"];
-            if (password_verify($password, $answer)){
-                return true;
+            $answer = $response->fetch_assoc();
+            if ($answer != NULL){
+                if(password_verify($password, $answer)){
+                    return true;
+                }else{
+                    return false;
+                };
             }else{
                 return false;
             }
+            
         }
 
         };
