@@ -1,9 +1,20 @@
 <?php
 
 
-include("../../models/user.php");
+include("../../models/wallet.php");
+include("../../utils/emailLogin.php");
+include("../../utils/phoneLogin.php");
 
-echo(User::isNew("666@gmai", 66));
+// echo (Wallet::checkBalance(1));
 
+// echo (Wallet::removeFunds(1,90));
+
+// echo json_encode(Wallet::getAllUserWallets(1));
+
+// echo json_encode(User::getUserByPhone(666));
+
+// echo json_encode(User::getUserByEmail("seblou@gMAIL.com"));
+
+echo json_encode(User::getUserNameAndLastName(10));
 
 ?>

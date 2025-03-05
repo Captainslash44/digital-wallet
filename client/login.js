@@ -1,3 +1,5 @@
+const base_api = "";
+
 const form = document.getElementById("login-form");
 
 form.addEventListener('submit', (e)=>{
@@ -16,8 +18,18 @@ form.addEventListener('submit', (e)=>{
     console.log(data);
 
 
-    axios.post("http://localhost/digital-wallet/server/user/v1/login.php",
-    data).then(res => console.log(res.data));
+    const checkLogin = async ()=>{
+        const response = await axios.post("http://localhost/digital-wallet/server/user/v1/login.php", data);
+        if(response.data.id == false){
+            alert("Wrong credentials");
+        }else{
+            console.log("we have contact");
+            localStorage.setItem("id", response.data.id);
+            window.location.href = "./client/mainclient.html";
+        }
+    }
+
+    checkLogin();
 })
 
 

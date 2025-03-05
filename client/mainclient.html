@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <h1>Welcome Client</h1>
+    <header class="bg-primary main-header flex space-around" id="main-header">
+        <h1 id="main-title">Welcome</h1>
+        <button id="logout-button" class="logout-button">Logout</button>
+    </header>
+    <div class="main-menu-container flex space-between">
+        <ul class="actions flex flex-column space-between flex-grow bg-secondary">
+            <header class="sub-header flex space-around">
+                <h2>Actions</h2>
+            </header>
+            <li class="flex flex-grow"><button class="action-button flex-grow">Verify</button></li>
+            <li class="flex flex-grow"><button class="action-button flex-grow">Deposit</button></li>
+            <li class="flex flex-grow"><button class="action-button flex-grow">Submit Ticket</button></li>
+            <li class="flex flex-grow"><button class="action-button flex-grow">Generate QR Code</button></li>
+            <li class="flex flex-grow"><button class="action-button flex-grow">Settings</button></li>
+        </ul>
+        <ul class="wallets flex-grow bg-secondary">
+            <header class="flex space-between sub-header">
+                <h2>Wallets</h2>
+                <button class="add-wallet-button">+</button>
+            </header>
+            <ul>
+            <li class="flex space-between bg-neutral"><p>id</p>
+            <p>balance</p>
+        <p>card#</p>
+    </ul>
+    </li>
+        </ul>
+    </div>
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+<script src="main.js"></script>
 </html>

@@ -65,12 +65,41 @@ class Wallet{
         }
 
 
-        public static function addFunds(){
+        public static function checkBalance($wallet_id){
+            global $conn;
+
+            $query = $conn->prepare("SELECT balance from wallets where id=?");
+            $query->bind_param('i', $wallet_id);
+            $query->execute();
+
+            $amount = $query->get_result();
+            $balance = $amount->fetch_assoc()["balance"];
+            
+            return $balance; // returns integer.
+            
 
         }
 
-        public static function removeFunds(){
-            
+        public static function addFunds($wallet_id, $amount){
+            global $conn;
+            $new_balance = self::checkBalance($wallet_id) + $amount;
+
+            $query = $conn->prepare("UPDATE wallets SET balance = $new_balance where id = ?");
+            $query->bind_param("i", $wallet_id);
+            $query->execute();
+
+            return "success";
+        }
+
+        public static function removeFunds($wallet_id, $amount){
+            global $conn;
+            $new_balance = self::checkBalance($wallet_id) - $amount;
+
+            $query = $conn->prepare("UPDATE wallets SET balance = $new_balance where id = ?");
+            $query->bind_param("i", $wallet_id);
+            $query->execute();
+
+            return "success";
         }
         
     }
