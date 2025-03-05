@@ -1,4 +1,4 @@
-const base_api = "https://13.38.109.103";
+const base_api = "http://13.38.109.103";
 
 const form = document.getElementById("login-form");
 
