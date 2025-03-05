@@ -137,7 +137,7 @@ class User{
             $response = $query->get_result();
             $answer = $response->fetch_assoc();
             if ($answer != NULL){
-                if(password_verify($password, $answer)){
+                if(password_verify($password, $answer["password"])){
                     return true;
                 }else{
                     return false;
