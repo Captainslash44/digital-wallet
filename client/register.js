@@ -25,6 +25,7 @@ register.addEventListener('click', (e) => {
         checkContent(phone)&&
         checkContent(password)&&
         checkContent(confirmed_password)){
+            
         data.append("name", name);
         data.append("lastname", last_name);
         data.append("email", email);
