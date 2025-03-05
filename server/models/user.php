@@ -8,6 +8,19 @@ include("../../connection/connection.php");
 
 class User{
 
+    public static function getUserNameAndLastName($id){
+        global $conn;
+
+        $query = $conn->prepare("SELECT name, last_name from users where id=?");
+        $query->bind_param("i", $id);
+        $query->execute();
+
+        $response = $query->get_result();
+        $data = $response->fetch_assoc();
+        $answer = array("name" => $data["name"], "lastname" => $data["last_name"]);
+        return $answer;
+    }
+
     public static function getUserByEmail($email){
         global $conn;
 

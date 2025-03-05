@@ -13,6 +13,8 @@ include("../../utils/phoneLogin.php");
 
 // echo json_encode(User::getUserByPhone(666));
 
-echo json_encode(User::getUserByEmail("seblou@gMAIL.com"));
+// echo json_encode(User::getUserByEmail("seblou@gMAIL.com"));
+
+echo json_encode(User::getUserNameAndLastName(10));
 
 ?>
